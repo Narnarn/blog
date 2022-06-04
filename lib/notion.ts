@@ -7,13 +7,34 @@ const notion = new Client({
 const databaseId =
   process.env.NOTION_DATABASE_ID || "8070d0d3-c40d-4343-ad7f-468b377be5ed";
 
-// need to imporve the queryObject
-export const getDatabase = async () => {
+// get published pages objects which are descending sorted
+// if has slug pram -> get the specific page of that slug
+export const getDatabase = async (slug?: string) => {
   let queryObject: any = {
     database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: "published",
+          checkbox: { equals: true },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "date",
+        direction: "descending",
+      },
+    ],
   };
+  if (slug) {
+    queryObject.filter.and.push({
+      property: "slug",
+      rich_text: { equals: slug },
+    });
+  }
   const response = await notion.databases.query(queryObject);
-  return response.results; // results is an array of objects
+  return response.results; // results is an array of page objects
 };
 
 export const getPageProps = async (pageId: string) => {
@@ -21,10 +42,10 @@ export const getPageProps = async (pageId: string) => {
   return response;
 };
 
-// need to figure out
+// get all blocks of the first level of the block
 export const getBlocks = async (blockId: string) => {
   const blocks = [];
-  let cursor;
+  let cursor; // with the undefined cursor, results come from the beginning of the list
   while (true) {
     const { results, next_cursor }: ListBlockChildrenResponse =
       await notion.blocks.children.list({
@@ -37,4 +58,12 @@ export const getBlocks = async (blockId: string) => {
     cursor = next_cursor;
   }
   return blocks;
+};
+
+export const searchDatabase = async (query: string) => {
+  const response = await notion.search({
+    query: query,
+    filter: { value: "page", property: "object" },
+    sort: { direction: "ascending", timestamp: "last_edited_time" },
+  });
 };
