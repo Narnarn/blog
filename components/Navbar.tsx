@@ -73,7 +73,7 @@ const Navbar = () => {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Menu.Items className="absolute right-0 grid grid-rows-4 bg-[#D3E4CD]/30 backdrop-blur-md shadow-md px-2 py-1 border-[1px] border-gray-300 text-gray-700 divide-y divide-gray-300 divide-dashed ">
+                <Menu.Items className="absolute right-0 grid grid-rows-4 bg-[#fffaf5]/70 backdrop-filter backdrop-blur-lg shadow-md px-2 py-1 border-[1px] border-gray-300 text-gray-700 divide-y divide-gray-300 divide-dashed ">
                   {navigations.map((n) => (
                     <Menu.Item key={n.link}>
                       <MyLink href={n.link}>

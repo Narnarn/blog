@@ -13,7 +13,7 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   pages,
 }) => {
   return (
-    <div className="mt-20 px-2 font-Charis text-lg text-gray-700  ">
+    <div className="px-2 font-Charis text-lg text-gray-700  ">
       <div className="mx-auto">
         <section className="mb-16 text-neutral-600">
           <h1 className="indexheading">Bio</h1>

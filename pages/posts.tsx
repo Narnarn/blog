@@ -3,6 +3,7 @@ import { GetStaticProps, NextPage } from "next";
 
 import { getDatabase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import Post from "../components/post";
 
 const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   pages,
@@ -13,13 +14,16 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
         <title>uazn Blog - NarraKay</title>
       </Head>
 
-      <h1 className="heading-text">Posts List</h1>
+      <h1 className="indexheading mb-10">Posts</h1>
 
       {pages.map((post: any) => {
         return (
-          <div key={post.id}>
-            <span className="text-sm">{post.properties.date.date.start}</span>
-            <p>{post.properties.Name.title[0].text.content}</p>
+          // <div key={post.id}>
+          //   <span className="text-sm">{post.properties.date.date.start}</span>
+          //   <p>{post.properties.Name.title[0].text.content}</p>
+          // </div>
+          <div key={post.id} className="mb-10 font-Charis">
+            <Post post={post} />
           </div>
         );
       })}
