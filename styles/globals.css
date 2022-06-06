@@ -1,3 +1,15 @@
 @tailwind base;
+
+@layer base {
+  html {
+    @apply bg-[#FEF5ED];
+  }
+}
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navitem {
+    @apply px-4 hover:underline active:text-[#99A799] underline-offset-2 transition duration-200;
+  }
+}

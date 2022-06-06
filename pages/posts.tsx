@@ -4,8 +4,8 @@ import { GetStaticProps, NextPage } from "next";
 import { getDatabase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
-const Blog: NextPage<{ posts: QueryDatabaseResponse["results"] }> = ({
-  posts,
+const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
+  pages,
 }) => {
   return (
     <>
@@ -15,7 +15,7 @@ const Blog: NextPage<{ posts: QueryDatabaseResponse["results"] }> = ({
 
       <h1 className="heading-text">Posts List</h1>
 
-      {posts.map((post: any) => {
+      {pages.map((post: any) => {
         return (
           <p key={post.id}>{post.properties.Name.title[0].text.content}</p>
         );
@@ -28,8 +28,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const pages = await getDatabase();
 
   return {
-    props: { posts: pages },
+    props: { pages: pages },
+    revalidate: 3600,
   };
 };
 
-export default Blog;
+export default Posts;
