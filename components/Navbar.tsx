@@ -18,13 +18,14 @@ const navigations = [
     link: "/posts",
   },
   {
-    name: "Projects",
-    link: "/projects",
-  },
-  {
     name: "Tags",
     link: "/tags",
   },
+  {
+    name: "Projects",
+    link: "/projects",
+  },
+
   {
     name: "Entertainment",
     link: "/entertainment",
@@ -34,12 +35,12 @@ const navigations = [
 const Navbar = () => {
   return (
     <>
-      <nav className="sticky top-0 z-6 px-12 md:px-40 border-b border-gray-300 bg-[#fffaf5] bg-opacity-70 backdrop-filter backdrop-blur-lg font-Montserrat">
-        <div className="flex justify-between md:justify-around pt-4  pb-2 text-gray-600 ">
+      <nav className="sticky top-0 z-6  border-b border-gray-300 bg-[#fffaf5] bg-opacity-70 backdrop-filter backdrop-blur-lg font-Montserrat">
+        <div className="flex px-8 justify-between md:justify-around pt-4  pb-2 text-gray-600 ">
           <Link href="/">
             <a className="text-lg font-bold min-w-max mr-4">
-              <FcGlobe className="inline mr-1 -mt-1 hover:animate-spin" />
-              UZAN - My Space
+              {/* <FcGlobe className="inline mr-1 -mt-1 hover:animate-spin" /> */}
+              Space
             </a>
           </Link>
 

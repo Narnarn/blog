@@ -17,7 +17,10 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
 
       {pages.map((post: any) => {
         return (
-          <p key={post.id}>{post.properties.Name.title[0].text.content}</p>
+          <div key={post.id}>
+            <span className="text-sm">{post.properties.date.date.start}</span>
+            <p>{post.properties.Name.title[0].text.content}</p>
+          </div>
         );
       })}
     </>

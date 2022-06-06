@@ -8,7 +8,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
     </Head>
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="max-w-4xl  font-Inter  text-gray-700">{children}</main>
+      {/* <main className="flex flex-col  px-20 md:px-44 lg:px-64 xl:px-80 2xl:px-96"> */}
+      <main className="flex flex-col  w-[70%] max-w-3xl mx-auto">
+        {children}
+      </main>
     </div>
   </>
 );

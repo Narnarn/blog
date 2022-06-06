@@ -10,6 +10,10 @@
 
 @layer components {
   .navitem {
-    @apply px-4 hover:underline active:text-[#99A799] underline-offset-2 transition duration-200;
+    @apply px-4 hover:underline hover:text-black active:text-[#99A799] underline-offset-2 transition duration-200;
+  }
+
+  .indexheading {
+    @apply -mx-1 text-xl mb-3 font-Montserrat font-medium underline underline-offset-4 decoration-[#ADC2A9] decoration-4;
   }
 }
