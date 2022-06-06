@@ -15,6 +15,13 @@ module.exports = {
         NotoSerif: ["Noto Serif SC", ...defaultTheme.fontFamily.serif],
       },
     },
+    listStyleType: {
+      none: "none",
+      disc: "disc",
+      decimal: "decimal",
+      square: "square",
+      roman: "upper-roman",
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

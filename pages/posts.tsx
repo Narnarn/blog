@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from "next";
 
 import { getDatabase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
-import Post from "../components/post";
+import Post from "../components/Post";
 
 const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   pages,
