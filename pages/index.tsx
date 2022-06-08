@@ -18,9 +18,9 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
       <Head>
         <title>Narra&apos;s Blog</title>
       </Head>
-      <div className="px-2 font-Charis text-lg text-gray-700  ">
+      <div className="px-2 font-Charis text-lg text-gray-700 dark:text-gray-100/80 ">
         <div className="mx-auto">
-          <section className="mb-16 text-neutral-600">
+          <section className="mb-16 text-neutral-600 dark:text-gray-100/80">
             <h1 className="indexheading">Bio</h1>
             <h2 className="font-Charis">
               Hi, my name is Narra. I&apos;m insterested in web development, and
@@ -47,14 +47,14 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
                   key={post.id}
                   className="flex flex-col  md:grid md:grid-cols-4  mb-4 md:mb-2"
                 >
-                  <span className="text-neutral-400 col-span-1  font-DMmono text-sm self-start md:self-center min-w-[80px] ">
+                  <span className="text-neutral-400 dark:text-gray-100/80 col-span-1  font-DMmono text-sm self-start md:self-center min-w-[80px] ">
                     {post.properties.date.date.start.slice(2)}
                   </span>
                   <Link
                     href={`/posts/${post.properties.slug.rich_text[0].text.content}`}
                   >
                     <a>
-                      <p className="text-neutral-600   col-span-3 hover:text-[#ADC2A9]">
+                      <p className="text-neutral-600 dark:text-gray-100/80  col-span-3 hover:text-[#ADC2A9]">
                         {post.properties.Name.title[0].text.content}
                       </p>
                     </a>

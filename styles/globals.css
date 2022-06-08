@@ -14,6 +14,6 @@
   }
 
   .indexheading {
-    @apply -mx-1 text-xl mb-3 font-Montserrat font-medium text-neutral-600 underline underline-offset-4 decoration-[#ADC2A9] decoration-4;
+    @apply -mx-1 text-xl mb-3 font-Montserrat font-medium text-neutral-600 dark:text-neutral-100/90 underline underline-offset-4 decoration-[#ADC2A9] decoration-4;
   }
 }

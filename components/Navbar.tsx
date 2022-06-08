@@ -2,6 +2,8 @@ import Link from "next/link";
 import { FcGlobe, FcMenu } from "react-icons/fc";
 import { Menu, Transition } from "@headlessui/react";
 import { VscChevronDown } from "react-icons/vsc";
+import { useTheme } from "next-themes";
+import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 
 const MyLink = (props: { href: string; children: React.ReactNode }) => {
   const { href, children, ...rest } = props;
@@ -33,6 +35,7 @@ const navigations = [
 ];
 
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
   return (
     <>
       <nav className="sticky top-0 z-6  border-b border-gray-300 bg-[#fffaf5] bg-opacity-70 backdrop-filter backdrop-blur-lg font-Montserrat">
@@ -50,13 +53,24 @@ const Navbar = () => {
                 <a className="navitem">{n.name}</a>
               </Link>
             ))}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="inline ml-4 "
+            >
+              {theme == "dark" && <MdOutlineLightMode size={20} />}
+              {theme == "light" && <MdOutlineDarkMode size={20} />}
+            </button>
           </div>
-          <div className="block md:hidden pt-1">
-            <Menu as="div" className="relative">
+
+          <div className="inline-block md:hidden pt-1">
+            <Menu as="div" className="relative inline-block mr-4">
               <Menu.Button>
                 {({ open }) => (
                   <>
-                    <FcMenu className={`${open ? "hidden" : "block"}`} />
+                    <FcMenu
+                      className={`${open ? "hidden" : "block"}`}
+                      size={20}
+                    />
                     <VscChevronDown
                       className={`${open ? "block" : "hidden"}`}
                     />
@@ -84,6 +98,13 @@ const Navbar = () => {
                 </Menu.Items>
               </Transition>
             </Menu>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className=""
+            >
+              {theme == "dark" && <MdOutlineLightMode size={20} />}
+              {theme == "light" && <MdOutlineDarkMode size={20} />}
+            </button>
           </div>
         </div>
       </nav>

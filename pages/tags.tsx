@@ -10,13 +10,13 @@ const Tags = ({ tags, counts }: { tags: any[]; counts: any[] }) => (
     </Head>
     <div>
       <h1 className="indexheading mb-10">Tags</h1>
-      <div className="flex gap-4 font-Charis text-lg text-neutral-700 flex-wrap">
+      <div className="flex gap-4 font-Charis text-lg text-neutral-700 dark:text-neutral-100/90 flex-wrap">
         {tags.map((tag, index) => (
           <Link key={tag} href={`tags/${tag}`} passHref>
             <a className="hover:text-neutral-400">
               <div className="inline-block ml-2">
                 <span>{tag}</span>
-                <span className="text-sm ml-1 text-green-800">
+                <span className="text-sm ml-1 text-green-800 dark:text-green-100">
                   {counts[index]}
                 </span>
               </div>
