@@ -3,8 +3,9 @@ import { GetStaticProps, NextPage } from "next";
 
 import { getDatabase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
-import Post from "../components/Post";
+
 import Link from "next/link";
+import Post from "../components/Post";
 
 const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   pages,
@@ -27,9 +28,13 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
             <Link
               href={`/posts/${post.properties.slug.rich_text[0].text.content}`}
               key={post.id}
-              className="mb-10 "
+              passHref
             >
-              <div className="mb-6 font-Charis">
+              <a className="mb-8">
+                <Post post={post} />
+              </a>
+
+              {/* <div className="mb-6 font-Charis">
                 <div>
                   <span className="text-neutral-400 font-DMmono min-w-[80px] mr-4">
                     {post.properties.date.date.start.slice(2)}
@@ -49,7 +54,7 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
                     {post.properties.Name.title[0].text.content}
                   </div>
                 </a>
-              </div>
+              </div> */}
             </Link>
           </>
         );

@@ -1,6 +1,6 @@
 const Post = (props: { post: any }) => {
   return (
-    <div className="mb-6 font-Charis">
+    <div className="font-Charis">
       <div>
         <span className="text-neutral-400 font-DMmono min-w-[80px] mr-4">
           {props.post.properties.date.date.start.slice(2)}

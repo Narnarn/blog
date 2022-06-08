@@ -4,7 +4,7 @@ import { getDatabase } from "../lib/notion";
 const Tags = ({ tags, counts }: { tags: any[]; counts: any[] }) => (
   <div>
     <h1 className="indexheading mb-10">Tags</h1>
-    <div className="flex gap-4 font-Charis text-lg text-neutral-700">
+    <div className="flex gap-4 font-Charis text-lg text-neutral-700 flex-wrap">
       {tags.map((tag, index) => (
         <div key={tag} className="inline-block ml-2">
           <span>{tag}</span>

@@ -40,7 +40,9 @@ const TagResults: NextPage<{
 }> = ({ pages, tag }) => {
   return (
     <>
-      <h1 className="indexheading mb-10">Entries tagged - {tag}</h1>
+      <h1 className="indexheading mb-10 font-semibold">
+        Posts tagged - {`"${tag}"`}
+      </h1>
 
       {pages.map((post: any) => {
         return (
