@@ -16,7 +16,7 @@ const Post = (props: { post: any }) => {
         </div>
       </div>
 
-      <div className="text-neutral-600  text-xl font-semibold ">
+      <div className="text-neutral-600  text-xl font-semibold hover:text-neutral-400">
         {props.post.properties.Name.title[0].text.content}
       </div>
     </div>
