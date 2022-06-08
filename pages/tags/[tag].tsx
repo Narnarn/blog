@@ -3,6 +3,7 @@ import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints"
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import PostList from "../../components/PostList";
+import Head from "next/head";
 
 export const getStaticPaths = async () => {
   const pages = await getDatabase();
@@ -41,6 +42,9 @@ const TagResults: NextPage<{
 }> = ({ pages, tag }) => {
   return (
     <>
+      <Head>
+        <title>Tag: {tag}</title>
+      </Head>
       <h1 className="indexheading mb-10 font-semibold">
         Posts tagged - {`"${tag}"`}
       </h1>

@@ -13,7 +13,7 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   return (
     <>
       <Head>
-        <title>Narra&apos;s Blog -- Posts</title>
+        <title>Posts -- Narra&apos;s Blog</title>
       </Head>
 
       <h1 className="indexheading mb-10">Posts</h1>
