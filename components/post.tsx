@@ -1,7 +1,7 @@
 const Post = (props: { post: any }) => {
   return (
-    <div>
-      <div className="mb-2">
+    <div className="mb-6 font-Charis">
+      <div>
         <span className="text-neutral-400 font-DMmono min-w-[80px] mr-4">
           {props.post.properties.date.date.start.slice(2)}
         </span>
@@ -16,7 +16,7 @@ const Post = (props: { post: any }) => {
         </div>
       </div>
 
-      <div className="text-neutral-600  text-2xl font-semibold">
+      <div className="text-neutral-600  text-xl font-semibold ">
         {props.post.properties.Name.title[0].text.content}
       </div>
     </div>

@@ -1,9 +1,11 @@
 import Text from "./NotionTextBlock";
 import slugify from "slugify";
 import { Fragment } from "react";
-import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
 import Latex from "react-latex-next";
+import CodeBlock from "./CodeBlock";
+import BookmarkBlock from "./BookmarkBlock";
+import NotionImage from "./NotionImage";
 
 const NotionBlock = ({ block }: { block: any }) => {
   const { type, id } = block;
@@ -13,7 +15,7 @@ const NotionBlock = ({ block }: { block: any }) => {
     switch (type) {
       case "paragraph":
         return (
-          <p className="mb-1">
+          <p className="mb-1 " key={id}>
             <Text text={value.rich_text} />
           </p>
         );
@@ -21,6 +23,7 @@ const NotionBlock = ({ block }: { block: any }) => {
       case "heading_1":
         return (
           <h1
+            key={id}
             id="slugify(value.rich_text[0].text.content)"
             className="font-Montserrat text-4xl mt-12 mb-2 font-semibold"
           >
@@ -32,6 +35,7 @@ const NotionBlock = ({ block }: { block: any }) => {
       case "heading_2":
         return (
           <h2
+            key={id}
             id="slugify(value.rich_text[0].text.content)"
             className="font-Montserrat text-2xl mt-8 mb-2 font-medium"
           >
@@ -42,6 +46,7 @@ const NotionBlock = ({ block }: { block: any }) => {
       case "heading_3":
         return (
           <h3
+            key={id}
             id="slugify(value.rich_text[0].text.content)"
             className="font-Montserrat text-xl mt-8 mb-2 font-medium"
           >
@@ -50,7 +55,10 @@ const NotionBlock = ({ block }: { block: any }) => {
         );
       case "callout":
         return (
-          <div className="rounded border-l-2 bg-green-50/30 p-4 my-2 shadow-sm">
+          <div
+            key={id}
+            className="rounded border-l-2 bg-green-50/30 p-4 my-2 shadow-sm"
+          >
             <span className="mr-4">{value.icon?.emoji || "🌟"}</span>
             <Text text={value.rich_text} />
           </div>
@@ -58,14 +66,17 @@ const NotionBlock = ({ block }: { block: any }) => {
 
       case "quote":
         return (
-          <p className=" border-l-2 border-green-800/60 bg-green-50/30 p-2 my-2  shadow-sm ">
+          <p
+            key={id}
+            className=" border-l-2 border-green-800/60 bg-green-50/30 p-2 my-2  shadow-sm "
+          >
             <Text text={value.rich_text} />
           </p>
         );
 
       case "bulleted_list_item":
         return (
-          <ul>
+          <ul key={id}>
             <li className="list-square list-inside pl-4">
               <Text text={value.rich_text} />
             </li>
@@ -73,7 +84,7 @@ const NotionBlock = ({ block }: { block: any }) => {
         );
       case "numbered_list_item":
         return (
-          <ol className="list-disc list-inside pl-4">
+          <ol key={id} className="list-disc list-inside pl-4">
             <li>
               <Text text={value.rich_text} />
             </li>
@@ -81,11 +92,12 @@ const NotionBlock = ({ block }: { block: any }) => {
         );
       case "to_do":
         return (
-          <div>
+          <div key={id}>
             <label htmlFor={id}>
               <input
                 type="checkbox"
                 id={id}
+                readOnly
                 checked={value.checked}
                 className="mr-2"
               />
@@ -95,7 +107,7 @@ const NotionBlock = ({ block }: { block: any }) => {
         );
       case "toggle":
         return (
-          <details>
+          <details key={id}>
             <summary>
               <Text text={value.rich_text} />
             </summary>
@@ -105,17 +117,19 @@ const NotionBlock = ({ block }: { block: any }) => {
           </details>
         );
       case "child_page":
-        return <p>{value.title}</p>;
-      case "divider":
-        return <hr />;
-      // case "code":
-      //   return (
-      //     <SyntaxHighlighter language={value.language} style={tomorrow}>
-      //       {value.rich_text[0].plain_text}
-      //     </SyntaxHighlighter>
-      //   );
+        return <p key={id}>{value.title}</p>;
+
+      case "code":
+        return <CodeBlock key={id} value={value} />;
       case "equation":
-        return <Latex>{`\\[${value.expression}\\]`}</Latex>;
+        return <Latex key={id}>{`\\[${value.expression}\\]`}</Latex>;
+      case "divider":
+        return <hr key={id} />;
+      case "bookmark":
+        return <BookmarkBlock value={value} />;
+      case "image":
+        return <NotionImage value={value} key={id} />;
+
       default:
         return <div> ❌ Unsupported block</div>;
     }
@@ -123,4 +137,5 @@ const NotionBlock = ({ block }: { block: any }) => {
 
   return <p>to implement this func</p>;
 };
+
 export default NotionBlock;

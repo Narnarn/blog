@@ -15,7 +15,7 @@ const Text = ({ text }: { text: any }) => {
           "rounded  px-2 font-mono bg-lime-50/60 text-sm text-green-800 font-semibold"
         }
       ${italic && "italic"} ${strikethrough && "line-through"} ${
-          underline && "underline"
+          underline && "underline underline-offset-2"
         } leading-loose
       `}
         style={color !== "default" ? { color } : {}}

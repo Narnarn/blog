@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import NotionBlock from "../../components/NotionBlock";
 import { getBlocks, getDatabase, getPageProps } from "../../lib/notion";
+import probeImageSize from "../../lib/probeImageSize";
 
 export const getStaticPaths = async () => {
   const db = await getDatabase();
@@ -37,6 +38,20 @@ export const getStaticProps = async ({ params }: { params: any }) => {
     }
     return b;
   });
+  await Promise.all(
+    addChildToBlock
+      .filter((b: any) => b.type === "image")
+      .map(async (b) => {
+        const { type } = b;
+        const value = b[type];
+        const src =
+          value.type === "external" ? value.external.url : value.file.url;
+
+        const { width, height } = await probeImageSize(src);
+        value["dim"] = { width, height };
+        b[type] = value;
+      })
+  );
   return {
     props: {
       page,
