@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import NotionBlock from "../../components/NotionBlock";
 import { getBlocks, getDatabase, getPageProps } from "../../lib/notion";
 import probeImageSize from "../../lib/probeImageSize";
+import Comments from "../../components/Coments";
 
 export const getStaticPaths = async () => {
   const db = await getDatabase();
@@ -74,6 +75,7 @@ const PostPage: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
           <NotionBlock key={block.id} block={block} />
         ))}
       </div>
+      <Comments />
     </>
   );
 };
