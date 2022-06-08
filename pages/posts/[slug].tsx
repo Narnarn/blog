@@ -68,7 +68,9 @@ const PostPage: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   return (
     <>
       <Head>
-        <title>{page.properties.Name.title[0].plain_text} - space</title>
+        <title>
+          {page.properties.Name.title[0].plain_text} - Narra&apos;s Blog
+        </title>
       </Head>
       <div className="text-neutral-700 font-WorkSans">
         {blocks.map((block) => (

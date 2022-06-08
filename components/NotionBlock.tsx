@@ -24,7 +24,7 @@ const NotionBlock = ({ block }: { block: any }) => {
         return (
           <h1
             key={id}
-            id="slugify(value.rich_text[0].text.content)"
+            id={slugify(value.rich_text[0].text.content)}
             className="font-Montserrat text-4xl mt-12 mb-2 font-semibold"
           >
             {" "}
@@ -36,7 +36,7 @@ const NotionBlock = ({ block }: { block: any }) => {
         return (
           <h2
             key={id}
-            id="slugify(value.rich_text[0].text.content)"
+            id={slugify(value.rich_text[0].text.content)}
             className="font-Montserrat text-2xl mt-8 mb-2 font-medium"
           >
             {value.rich_text[0].plain_text}
@@ -47,7 +47,7 @@ const NotionBlock = ({ block }: { block: any }) => {
         return (
           <h3
             key={id}
-            id="slugify(value.rich_text[0].text.content)"
+            id={slugify(value.rich_text[0].text.content)}
             className="font-Montserrat text-xl mt-8 mb-2 font-medium"
           >
             {value.rich_text[0].plain_text}
