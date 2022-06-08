@@ -33,6 +33,40 @@ export const getDatabase = async (slug?: string) => {
       rich_text: { equals: slug },
     });
   }
+
+  const response = await notion.databases.query(queryObject);
+  return response.results; // results is an array of page objects
+};
+
+export const queryDatabaseByTag = async (tag?: string) => {
+  let queryObject: any = {
+    database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: "published",
+          checkbox: { equals: true },
+        },
+        {
+          property: "tag",
+          multi_select: {
+            contains: tag,
+          },
+        },
+        // {
+        //   property: "tag",
+        //   contains: tag,
+        // },
+      ],
+    },
+    sorts: [
+      {
+        property: "date",
+        direction: "descending",
+      },
+    ],
+  };
+
   const response = await notion.databases.query(queryObject);
   return response.results; // results is an array of page objects
 };

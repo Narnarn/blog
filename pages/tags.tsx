@@ -8,7 +8,7 @@ const Tags = ({ tags, counts }: { tags: any[]; counts: any[] }) => (
       {tags.map((tag, index) => (
         <div key={tag} className="inline-block ml-2">
           <span>{tag}</span>
-          <span className="text-sm ml-1 text-blue-600">{counts[index]}</span>
+          <span className="text-sm ml-1 text-green-800">{counts[index]}</span>
         </div>
       ))}
     </div>
