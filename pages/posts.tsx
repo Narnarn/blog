@@ -5,7 +5,7 @@ import { getDatabase } from "../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 
 import Link from "next/link";
-import Post from "../components/Post";
+import PostList from "../components/PostList";
 
 const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
   pages,
@@ -31,7 +31,7 @@ const Posts: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
               passHref
             >
               <a className="mb-8">
-                <Post post={post} />
+                <PostList post={post} />
               </a>
 
               {/* <div className="mb-6 font-Charis">

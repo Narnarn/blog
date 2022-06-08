@@ -2,7 +2,7 @@ import { queryDatabaseByTag, getDatabase } from "../../lib/notion";
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import Post from "../../components/Post";
+import PostList from "../../components/PostList";
 
 export const getStaticPaths = async () => {
   const pages = await getDatabase();
@@ -58,7 +58,7 @@ const TagResults: NextPage<{
               passHref
             >
               <a className="mb-8">
-                <Post post={post} />
+                <PostList post={post} />
               </a>
             </Link>
           </>

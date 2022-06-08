@@ -1,4 +1,4 @@
-const Post = (props: { post: any }) => {
+const PostList = (props: { post: any }) => {
   return (
     <div className="font-Charis">
       <div>
@@ -23,4 +23,4 @@ const Post = (props: { post: any }) => {
   );
 };
 
-export default Post;
+export default PostList;
