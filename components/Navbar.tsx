@@ -61,6 +61,7 @@ const Navbar = () => {
               ))}
               {mounted && (
                 <button
+                  aria-label="changeDarkLightMode"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                   className="inline ml-4 "
                 >
@@ -108,6 +109,7 @@ const Navbar = () => {
               </Menu>
               {mounted && (
                 <button
+                  aria-label="changeDarkLightMode"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                   className=""
                 >

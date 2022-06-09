@@ -47,14 +47,14 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
                   key={post.id}
                   className="flex flex-col  md:grid md:grid-cols-4  mb-4 md:mb-2"
                 >
-                  <span className="text-neutral-400 dark:text-gray-100/80 col-span-1  font-DMmono text-sm self-start md:self-center min-w-[80px] ">
+                  <span className="text-neutral-600 dark:text-gray-100/80 col-span-1  font-DMmono text-sm self-start md:self-center min-w-[80px] ">
                     {post.properties.date.date.start.slice(2)}
                   </span>
                   <Link
                     href={`/posts/${post.properties.slug.rich_text[0].text.content}`}
                   >
                     <a>
-                      <p className="text-neutral-600 dark:text-gray-100/80  col-span-3 hover:text-[#ADC2A9]">
+                      <p className="text-neutral-600 dark:text-gray-100/80  col-start-2 col-span-3 whitespace-nowrap hover:text-[#ADC2A9]">
                         {post.properties.Name.title[0].text.content}
                       </p>
                     </a>

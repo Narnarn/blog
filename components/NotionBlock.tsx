@@ -1,5 +1,5 @@
 import Text from "./NotionTextBlock";
-import slugify from "slugify";
+import { slugify } from "transliteration";
 import { Fragment } from "react";
 
 import Latex from "react-latex-next";
