@@ -73,6 +73,15 @@ const PostPage: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
           {page.properties.Name.title[0].plain_text} - Narra&apos;s Blog
         </title>
       </Head>
+      <header className="px-4 mb-16 font-WorkSans text-center">
+        <h1 className="text-4xl  font-bold  py-4">
+          {page.properties.Name.title[0].plain_text}
+        </h1>
+        <h2 className=" font-medium">
+          <span>{page.properties.date.date.start}</span>
+          <span> · Narra</span>
+        </h2>
+      </header>
       <div className="text-neutral-700 font-WorkSans text-lg dark:text-neutral-100/90">
         {blocks.map((block) => (
           <NotionBlock key={block.id} block={block} />

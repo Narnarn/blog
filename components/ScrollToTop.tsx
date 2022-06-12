@@ -28,7 +28,7 @@ function ScrollToTop() {
         type="button"
         onClick={scrollToTop}
         style={{ opacity: isVisible ? "100%" : 0 }}
-        className="inline-flex items-center p-2 rounded-full shadow-sm text-neutral-800 dark:text-gray-200 bg-green-800/10 transition-opacity hover:bg-slate-800 hover:text-white "
+        className="inline-flex items-center p-2  shadow-sm text-neutral-800 dark:text-gray-200 bg-green-800/10 transition-opacity hover:bg-slate-800 hover:text-white "
       >
         <BiArrowFromBottom className="h-5 w-5" aria-hidden="true" />
       </button>
