@@ -32,7 +32,7 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
         </section>
         <div>
           <img
-            src="/pattern.jpg"
+            src="/pattern.webp"
             alt="pattern fugtiptil"
             width={540}
             height={675}
