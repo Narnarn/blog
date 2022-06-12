@@ -6,6 +6,8 @@ const Projects = () => {
       <Head>
         <title>Projects -- Narra&apos;s Blog</title>
       </Head>
+      <h1 className="indexheading mb-10">Projects</h1>
+
       <div>
         <ProjBlock
           imgSrc="/calendar.png"

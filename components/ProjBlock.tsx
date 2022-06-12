@@ -23,7 +23,7 @@ function ProjBlock({
       <p className="text-xl font-WorkSans px-2 py-2 font-medium text-neutral-600 dark:text-neutral-100">
         <a
           href="https://calendar-sable-theta.vercel.app/"
-          className="hover:text-blue-800/80 dark:hover:text-lime-100"
+          className="hover:text-green-800/80 dark:hover:text-lime-100"
           target="_blank"
           rel="noreferrer"
         >

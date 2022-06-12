@@ -6,6 +6,7 @@ import NotionBlock from "../../components/NotionBlock";
 import { getBlocks, getDatabase, getPageProps } from "../../lib/notion";
 import probeImageSize from "../../lib/probeImageSize";
 import Comments from "../../components/Coments";
+import ScrollToTop from "../../components/ScrollToTop";
 
 export const getStaticPaths = async () => {
   const db = await getDatabase();
@@ -72,12 +73,13 @@ const PostPage: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
           {page.properties.Name.title[0].plain_text} - Narra&apos;s Blog
         </title>
       </Head>
-      <div className="text-neutral-700 font-WorkSans dark:text-neutral-100/90">
+      <div className="text-neutral-700 font-WorkSans text-lg dark:text-neutral-100/90">
         {blocks.map((block) => (
           <NotionBlock key={block.id} block={block} />
         ))}
       </div>
       <Comments />
+      <ScrollToTop />
     </>
   );
 };

@@ -18,11 +18,11 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
       <Head>
         <title>Narra&apos;s Blog</title>
       </Head>
-      <div className="px-2 font-Charis text-lg text-gray-700 dark:text-gray-100/80 ">
+      <div className="font-Charis text-lg text-gray-700 dark:text-gray-100/80 ">
         <div className="mx-auto">
           <section className="mb-16 text-neutral-600 dark:text-gray-100/80">
-            <h1 className="indexheading">Bio</h1>
-            <h2 className="font-Charis">
+            <h1 className="indexheading">About</h1>
+            {/* <h2 className="font-Charis">
               Hi, my name is Narra. I&apos;m insterested in web development, and
               looking for a front-end job as a graduate of 2023.
             </h2>
@@ -36,9 +36,10 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
               narrakay#163.com{" "}
               <RiWechat2Line className="inline ml-2 -mr-1 text-[#ADC2A9]" />{" "}
               csssuc
-            </div>
+            </div> */}
           </section>
-          <section className="mb-16">
+
+          {/* <section className="mb-16">
             <h1 className="indexheading">Recent Posts</h1>
 
             {pages.map((post: any) => {
@@ -68,16 +69,17 @@ const Home: NextPage<{ pages: QueryDatabaseResponse["results"] }> = ({
                     >
                       <span>{tag.name}</span>
                     </span>
-                  ))}
-                </div> */}
+                  ))} *
+                </div> 
                 </div>
               );
             })}
-          </section>
+          </section> 
+          */}
 
-          <section className="mb-16">
+          {/* <section className="mb-16">
             <h1 className="indexheading">Personal Project</h1>
-          </section>
+          </section> */}
         </div>
       </div>
     </>

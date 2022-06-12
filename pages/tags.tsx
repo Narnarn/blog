@@ -9,8 +9,8 @@ const Tags = ({ tags, counts }: { tags: any[]; counts: any[] }) => (
       <title>Tags -- Narra&apos;s Blog</title>
     </Head>
     <div>
-      <h1 className="indexheading mb-10">Tags</h1>
-      <div className="flex gap-4 font-Charis text-lg text-neutral-700 dark:text-neutral-100/90 flex-wrap">
+      <h1 className="indexheading mb-12">Tags</h1>
+      <div className="flex gap-4 font-Charis text-xl text-neutral-700 dark:text-neutral-100/90 flex-wrap">
         {tags.map((tag, index) => (
           <Link key={tag} href={`tags/${tag}`} passHref>
             <a className="hover:text-neutral-400">
